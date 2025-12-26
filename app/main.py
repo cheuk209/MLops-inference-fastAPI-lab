@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.schemas import PredictRequest, PredictResponse
-import time
+import time, random, asyncio
 
 app = FastAPI()
 
@@ -13,6 +13,12 @@ def health_check():
     return {"status": "healthy"}
 
 @app.post("/predict", response_model=PredictResponse)
-def predict(request: PredictRequest):
-    time.sleep(0.3)
-    return PredictResponse(prediction=0.85, model_version="1.0.0")
+async def predict(request: PredictRequest):
+    latency = 0.08 + random.random() * 0.04
+    asyncio.sleep(latency)
+
+    prediction = (request.feature_1 * 0.3 + request.feature_2 * 0.7) / 10
+    return PredictResponse(
+        prediction=round(prediction, 2),
+        model_version="1.0.0"
+    )
