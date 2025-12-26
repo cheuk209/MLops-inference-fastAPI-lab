@@ -1,0 +1,1 @@
+# MLops-inference-fastAPI-lab
