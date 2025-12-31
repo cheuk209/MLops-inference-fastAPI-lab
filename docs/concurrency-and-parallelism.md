@@ -407,6 +407,192 @@ These results demonstrate:
 
 ---
 
+## Part 10: The Full Picture - From Code to Kubernetes
+
+As a DevOps engineer, you scale horizontally with pods. Here's how that relates to everything above.
+
+### The Scaling Stack
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           SCALING LAYERS                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Layer 4: KUBERNETES (Horizontal Pod Scaling)                               │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐                           │
+│  │   Pod 1     │ │   Pod 2     │ │   Pod 3     │  ← Separate machines/VMs  │
+│  │             │ │             │ │             │     True isolation         │
+│  └─────────────┘ └─────────────┘ └─────────────┘     Scale: 10s-1000s      │
+│         │               │               │                                   │
+│  ───────┴───────────────┴───────────────┴────────                          │
+│                         │                                                   │
+│  Layer 3: PROCESS (Uvicorn Workers)                                        │
+│  ┌─────────────────────────────────────────────┐                           │
+│  │  Pod                                        │                           │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐    │  ← Separate processes     │
+│  │  │ Worker 1 │ │ Worker 2 │ │ Worker 3 │    │     Own GIL each          │
+│  │  │ (CPU 1)  │ │ (CPU 2)  │ │ (CPU 3)  │    │     Scale: 1-16 per pod   │
+│  │  └──────────┘ └──────────┘ └──────────┘    │                           │
+│  └─────────────────────────────────────────────┘                           │
+│                         │                                                   │
+│  Layer 2: THREAD (FastAPI Thread Pool)                                     │
+│  ┌─────────────────────────────────────────────┐                           │
+│  │  Worker Process                             │                           │
+│  │  ┌────────┐ ┌────────┐ ┌────────┐          │  ← OS threads             │
+│  │  │Thread 1│ │Thread 2│ │Thread 3│ ...      │     Limited by GIL        │
+│  │  └────────┘ └────────┘ └────────┘          │     Scale: 10-40 default  │
+│  └─────────────────────────────────────────────┘                           │
+│                         │                                                   │
+│  Layer 1: EVENT LOOP (Asyncio)                                             │
+│  ┌─────────────────────────────────────────────┐                           │
+│  │  Single Thread                              │                           │
+│  │  ┌──────────────────────────────────────┐  │  ← Cooperative tasks      │
+│  │  │  Task A ←→ Task B ←→ Task C ←→ ...   │  │     Zero overhead         │
+│  │  └──────────────────────────────────────┘  │     Scale: 1000s+ I/O ops │
+│  └─────────────────────────────────────────────┘                           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### What Each Layer Solves
+
+| Layer | Scaling Type | Solves | Cost | Good For |
+|-------|--------------|--------|------|----------|
+| **Event Loop** | Concurrency (1 thread) | I/O waiting | Nearly free | HTTP calls, DB queries |
+| **Thread Pool** | Concurrency (multi-thread) | Blocking I/O | Low | Sync libraries, light CPU |
+| **Workers** | Parallelism (multi-process) | GIL, CPU-bound | Medium (memory) | ML inference, computation |
+| **Pods** | Parallelism (multi-machine) | Single machine limits | High (infra) | Scale beyond one node |
+
+### How They Work Together
+
+```
+Incoming Request
+       │
+       ▼
+┌──────────────────┐
+│  Load Balancer   │  ← Distributes across pods (Layer 4)
+│  (K8s Service)   │
+└────────┬─────────┘
+         │
+    ┌────┴────┐
+    ▼         ▼
+┌───────┐ ┌───────┐
+│ Pod 1 │ │ Pod 2 │   ← Each pod runs independently
+└───┬───┘ └───────┘
+    │
+    ▼
+┌───────────────────────────────┐
+│  Uvicorn with 4 workers       │  ← Distributes across workers (Layer 3)
+│  (gunicorn or --workers 4)    │
+└───────────────┬───────────────┘
+                │
+    ┌───────────┼───────────┐
+    ▼           ▼           ▼
+┌────────┐ ┌────────┐ ┌────────┐
+│Worker 1│ │Worker 2│ │Worker 3│  ← Each worker is a process
+└───┬────┘ └────────┘ └────────┘
+    │
+    ▼
+┌────────────────────────────────┐
+│  FastAPI async handler         │  ← Event loop handles I/O (Layer 1)
+│  or                            │
+│  FastAPI sync handler          │  ← Thread pool handles blocking (Layer 2)
+└────────────────────────────────┘
+```
+
+### The Key Insight: They're Not Alternatives, They're Layers
+
+**Common misconception:** "I have Kubernetes, so I don't need to think about async or workers."
+
+**Reality:** Each layer multiplies the previous:
+
+```
+Total Capacity = Pods × Workers × (Threads or Async Tasks)
+
+Example:
+- 3 pods × 4 workers × 1000 concurrent async tasks = 12,000 concurrent I/O operations
+- 3 pods × 4 workers × 1 sync task (no async) = 12 concurrent operations
+```
+
+If your code blocks the event loop, adding more pods just gives you more blocked event loops.
+
+### What You Control at Each Level
+
+| Layer | Who Controls | Configured Where |
+|-------|--------------|------------------|
+| Event Loop / Threads | **Developer** (you in this lab) | Python code (`async def` vs `def`) |
+| Workers | **Developer / DevOps** | `uvicorn --workers N` or gunicorn |
+| Pods | **DevOps** (you at work) | `kubectl`, HPA, Deployment replicas |
+| Nodes | **Platform / Cloud** | Node pools, autoscaling groups |
+
+### MLOps Scaling Strategy
+
+For ML inference services:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                  ML INFERENCE SCALING STRATEGY                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. START: Single pod, single worker                            │
+│     - Baseline your model's latency (p50, p95, p99)            │
+│     - Find single-request inference time                        │
+│                                                                 │
+│  2. VERTICAL: Add workers (--workers N)                         │
+│     - N = number of CPU cores                                   │
+│     - Watch memory! Each worker loads the model                 │
+│     - Throughput scales ~linearly until CPU saturates          │
+│                                                                 │
+│  3. HORIZONTAL: Add pods (HPA)                                  │
+│     - When single node CPU/memory maxed out                     │
+│     - Scale on CPU% or custom metrics (queue depth)            │
+│     - Each pod = full model copy in memory                      │
+│                                                                 │
+│  4. OPTIMIZE: If still not enough                               │
+│     - Model optimization (ONNX, TensorRT, quantization)        │
+│     - Batching requests                                         │
+│     - GPU inference                                             │
+│     - Model serving platforms (Triton, TF Serving)             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Common DevOps Mistakes with Python Services
+
+| Mistake | Why It Happens | Impact |
+|---------|---------------|--------|
+| HPA scaling on memory for ML | Models use constant memory | Pods never scale up |
+| 1 worker per pod | "Kubernetes handles scaling" | Wasting CPU cores |
+| Too many workers | "More is better" | OOM kills, memory thrashing |
+| Ignoring async | "It's just an API" | 10x-100x lower throughput |
+| Same config for all services | "Standardization" | CPU service gets I/O config |
+
+### Right-Sizing Workers vs Pods
+
+```
+Given: 8-core nodes, model uses 2GB RAM, node has 16GB
+
+Option A: 1 pod with 8 workers
+  Memory: 8 × 2GB = 16GB ✓
+  CPU: 8 workers can use 8 cores ✓
+  Fault tolerance: Single point of failure ✗
+
+Option B: 2 pods with 4 workers each
+  Memory: 2 × (4 × 2GB) = 16GB ✓
+  CPU: 8 workers total across 2 pods ✓
+  Fault tolerance: One pod can die ✓
+
+Option C: 8 pods with 1 worker each
+  Memory: 8 × 2GB = 16GB ✓
+  CPU: 8 workers, max distribution ✓
+  Fault tolerance: Best ✓
+  Overhead: Highest (8 pod networks, probes, etc.) ✗
+```
+
+**General rule:** 2-4 workers per pod is a sweet spot for most ML services.
+
+---
+
 ## Further Reading
 
 - [FastAPI Async Documentation](https://fastapi.tiangolo.com/async/)
