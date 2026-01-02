@@ -157,6 +157,42 @@ This is called a **race condition**. Two threads "racing" to access the same dat
 
 ## Part 4: The GIL - Python's Controversial Lock
 
+### First: Threading is Universal, the GIL is Not
+
+Threading is an **operating system concept**, not a Python concept. Every major language supports threads:
+
+| Language | Threads? | GIL? | True Parallelism with Threads? |
+|----------|----------|------|-------------------------------|
+| C / C++ | Yes | No | Yes |
+| Java | Yes | No | Yes |
+| Go | Yes (goroutines) | No | Yes |
+| Rust | Yes | No | Yes |
+| JavaScript | No (single-threaded) | N/A | N/A (uses event loop) |
+| **Python** | Yes | **Yes** | **No** |
+
+In most languages, 4 threads on 4 cores = 4x speedup for CPU work.
+
+```
+C++ with 4 threads on 4 cores:
+Core 1: [Thread 1 ████████████████]
+Core 2: [Thread 2 ████████████████]
+Core 3: [Thread 3 ████████████████]
+Core 4: [Thread 4 ████████████████]
+↑ All running simultaneously = 4x throughput
+```
+
+**Python is the exception**, not the rule. The GIL is a Python-specific limitation.
+
+### Why Does Python Have the GIL?
+
+Historical reasons from 1992:
+1. Python's memory management (reference counting) isn't thread-safe
+2. The GIL was a simple solution when single-core CPUs were the norm
+3. Removing it now would break backward compatibility
+4. Many C extensions depend on GIL behavior
+
+It's a tradeoff: simpler implementation, but limited parallelism.
+
 ### What is the GIL?
 
 The **Global Interpreter Lock** is a mutex (lock) in Python that says:

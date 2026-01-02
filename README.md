@@ -1,6 +1,6 @@
 # MLOps Inference FastAPI Lab
 
-A hands-on learning lab for understanding **latency and throughput** in ML inference systems using FastAPI.
+A hands-on learning lab for understanding **latency, throughput, and async usages** in ML inference systems using FastAPI.
 
 ## Learning Goals
 
