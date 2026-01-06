@@ -43,3 +43,16 @@ async def predict_async(request: PredictRequest):
         prediction=round(prediction, 2),
         model_version="1.0.0"
     )
+
+
+@app.post("/predict/broken", response_model=PredictResponse)
+async def predict_broken(request: PredictRequest):
+    """BROKEN: async def with blocking time.sleep() - freezes event loop!"""
+    latency = 0.08 + random.random() * 0.04
+    time.sleep(latency)  # BAD: blocking call inside async function
+
+    prediction = (request.feature_1 * 0.3 + request.feature_2 * 0.7) / 10
+    return PredictResponse(
+        prediction=round(prediction, 2),
+        model_version="1.0.0"
+    )
