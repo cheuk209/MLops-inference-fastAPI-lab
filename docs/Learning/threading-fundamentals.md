@@ -128,30 +128,56 @@ Thread 3: bake_dessert()    # 8 min  ─┘
 
 ### The Catch: Sharing is Dangerous
 
-When chefs share a kitchen, problems arise:
+When chefs share a kitchen, problems arise. Here's a complete example:
 
 ```python
-# Two threads, one shared variable
+import threading
+
+# Shared variable - both threads will access this
 counter = 0
 
 def increment():
     global counter
     counter = counter + 1  # Read, add, write - THREE operations
 
-# Thread 1 and Thread 2 both call increment()
+# Create TWO threads that both run the same function
+thread_1 = threading.Thread(target=increment)
+thread_2 = threading.Thread(target=increment)
 
-# What SHOULD happen:
-# counter = 0 → 1 → 2
+# Start both threads (they run concurrently)
+thread_1.start()
+thread_2.start()
 
-# What CAN happen:
-# Thread 1 reads counter (0)
-# Thread 2 reads counter (0)  ← Before Thread 1 writes!
-# Thread 1 writes counter (1)
-# Thread 2 writes counter (1) ← Overwrites with wrong value!
-# Result: counter = 1, not 2
+# Wait for both to finish
+thread_1.join()
+thread_2.join()
+
+print(counter)  # Expected: 2, but might be 1!
 ```
 
-This is called a **race condition**. Two threads "racing" to access the same data.
+**Where are the two threads?** Lines 10-11 create them explicitly with `threading.Thread()`.
+
+**What SHOULD happen:**
+```
+counter = 0 → 1 → 2
+```
+
+**What CAN happen:**
+```
+Thread 1                    Thread 2                  counter
+────────                    ────────                  ───────
+                                                      0
+reads counter (sees 0)
+                            reads counter (sees 0)    0
+adds 1 (has 1 locally)
+                            adds 1 (has 1 locally)    0
+writes counter = 1
+                            writes counter = 1        1 ← should be 2!
+```
+
+Both threads read `0`, both compute `1`, both write `1`. One increment is lost.
+
+This is called a **race condition** - two threads "racing" to access the same data, with unpredictable results.
 
 ---
 

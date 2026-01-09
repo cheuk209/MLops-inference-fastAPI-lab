@@ -30,6 +30,39 @@ A comprehensive list of all exercises in this MLOps FastAPI lab, organized by ph
 
 ---
 
+## Phase 1.5: Sync vs Async Mastery (New 🆕)
+
+**Learning Objective:** Build deep intuition for when to use `def`, `async def`, threads, or workers through hands-on practice across diverse real-world scenarios.
+
+### Sync/Async Practice Exercises
+See `docs/Exercises/sync-async-exercises.md` for full details.
+
+- [x] **A** Database Lookup (blocking driver) - `psycopg2` style ✅
+- [x] **B** External API Call (async HTTP client) - `httpx` style ✅
+- [x] **C** CPU-Heavy Computation - hashing, ML inference ✅
+- [x] **D** File Read (blocking I/O) - standard `open()` ✅
+- [x] **E** Cache Lookup (async Redis) - high-throughput cache ✅
+- [ ] **F** Mixed Workload - ML preprocessing + inference
+- [ ] **G** Fire-and-Forget Logging - background tasks
+- [ ] **H** Batch Parallel Requests - `asyncio.gather()`
+
+**Key Concepts:**
+- Match the pattern to the library's capabilities
+- Blocking library + `async def` = disaster
+- CPU-bound needs workers, not async
+- `asyncio.gather()` for parallel I/O
+- `BackgroundTasks` for fire-and-forget
+
+**Scoring:**
+| Correct | Level |
+|---------|-------|
+| 8/8 | Expert - ready for production MLOps |
+| 6-7/8 | Solid - review the ones you missed |
+| 4-5/8 | Getting there - re-read the docs |
+| <4/8 | Review threading-fundamentals.md |
+
+---
+
 ## Phase 2: Observability (In Progress 🔄)
 
 **Learning Objective:** Learn to instrument your service for production monitoring - measure latency, calculate percentiles, and expose metrics.
@@ -112,6 +145,7 @@ A comprehensive list of all exercises in this MLOps FastAPI lab, organized by ph
 | Phase | Topic | Status |
 |-------|-------|--------|
 | 1 | Foundation (FastAPI, async/sync) | ✅ Complete |
+| 1.5 | Sync vs Async Mastery (8 exercises) | 🆕 New |
 | 2 | Observability (middleware, metrics) | 🔄 In Progress |
 | 3 | Load Testing (Locust) | 📋 Pending |
 | 4 | Performance Tuning (workers) | 📋 Pending |
@@ -123,12 +157,15 @@ A comprehensive list of all exercises in this MLOps FastAPI lab, organized by ph
 
 | File | Topic |
 |------|-------|
-| `docs/concurrency-and-parallelism.md` | Deep dive into async, threading, and how it relates to Kubernetes scaling |
-| `docs/threading-fundamentals.md` | Ground-up explanation of processes, threads, GIL, and thread pools |
-| `docs/exercise-tracker.md` | This file - exercise progress tracking |
+| `docs/Learning/concurrency-and-parallelism.md` | Deep dive into async, threading, and how it relates to Kubernetes scaling |
+| `docs/Learning/threading-fundamentals.md` | Ground-up explanation of processes, threads, GIL, and thread pools |
+| `docs/Exercises/exercise-tracker.md` | This file - exercise progress tracking |
+| `docs/Exercises/sync-async-exercises.md` | 8 hands-on exercises for sync/async mastery |
 
 ---
 
 ## Next Step
 
-Continue with **Exercise 2.4**: Store latency samples in memory for percentile calculations.
+**Option 1:** Work through **Phase 1.5 exercises** (A-H) in `sync-async-exercises.md` to build mastery.
+
+**Option 2:** Continue with **Exercise 2.4**: Store latency samples in memory for percentile calculations.
