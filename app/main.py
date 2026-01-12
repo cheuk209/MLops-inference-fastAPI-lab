@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, BackgroundTasks
 from app.schemas import PredictRequest, PredictResponse
 from app.middleware import add_process_time_header
 import asyncio
@@ -104,3 +104,34 @@ def read_file():
 async def get_redis_lookup(cache_key: str):
     await asyncio.sleep(0.1)
     return {"key": cache_key, "value": "cache_data"}
+
+@app.post("/predict/image")
+def predict_image():
+    time.sleep(0.1) ## Letting threadpool handle it
+    time.sleep(0.1) ## CPU inference 
+    return {"prediction": "cat", "confidence": 0.5}
+
+class TrackData(BaseModel):
+    event: str
+    user_id: int
+
+
+async def send_to_analytics(event: dict):
+    await asyncio.sleep(0.2)
+    print(f"Logged: {event}")
+
+@app.post("/track")
+async def accept_track(payload: TrackData, background_tasks: BackgroundTasks):
+    background_tasks.add_task(send_to_analytics, payload)
+    return {"status": "accepted"}
+
+@app.get("/dashboard")
+async def get_dashboard():
+    await asyncio.gather(
+        asyncio.sleep(0.1),
+        asyncio.sleep(0.1),
+        asyncio.sleep(0.1),
+        asyncio.sleep(0.1),
+    )
+
+    return {"service1": "blah", "service2": "blah", "service3": "blah","service4": "blah","service5": "blah" }

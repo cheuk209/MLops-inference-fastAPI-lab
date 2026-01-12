@@ -398,3 +398,29 @@ Is the library/operation async-compatible?
 | 6-7/8 | Solid - review the ones you missed |
 | 4-5/8 | Getting there - re-read the docs |
 | <4/8 | Review Part 6-7 of threading-fundamentals.md |
+
+---
+
+## Quick Reference: Pattern Summary
+
+| Exercise | Scenario | Pattern | Why |
+|----------|----------|---------|-----|
+| **A** | Database (blocking driver) | `def` | Blocking lib → thread pool handles it |
+| **B** | External API (async HTTP) | `async def` + `await` | Async lib → event loop handles it |
+| **C** | CPU-heavy computation | `def` + `--workers N` | CPU-bound → need multiple processes to bypass GIL |
+| **D** | File read (blocking I/O) | `def` | `open()` is blocking → thread pool |
+| **E** | Cache lookup (async Redis) | `async def` + `await` | Async lib → high concurrency on event loop |
+| **F** | Mixed I/O + CPU | `def` + `--workers N` | Simpler than mixing patterns; workers handle both |
+| **G** | Fire-and-forget logging | `async def` + `BackgroundTasks` | Return immediately, work happens after response |
+| **H** | Batch parallel requests | `async def` + `asyncio.gather()` | Run multiple async calls concurrently |
+
+---
+
+## The Golden Rules
+
+1. **Blocking library?** → Use `def` (thread pool)
+2. **Async library?** → Use `async def` + `await` (event loop)
+3. **CPU-bound?** → Use `def` + multiple workers (processes)
+4. **Need to return fast?** → Use `BackgroundTasks`
+5. **Multiple independent I/O calls?** → Use `asyncio.gather()`
+6. **Never mix `async def` with blocking code** → Freezes event loop

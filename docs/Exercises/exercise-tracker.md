@@ -30,7 +30,7 @@ A comprehensive list of all exercises in this MLOps FastAPI lab, organized by ph
 
 ---
 
-## Phase 1.5: Sync vs Async Mastery (New 🆕)
+## Phase 1.5: Sync vs Async Mastery (Complete ✅)
 
 **Learning Objective:** Build deep intuition for when to use `def`, `async def`, threads, or workers through hands-on practice across diverse real-world scenarios.
 
@@ -42,9 +42,9 @@ See `docs/Exercises/sync-async-exercises.md` for full details.
 - [x] **C** CPU-Heavy Computation - hashing, ML inference ✅
 - [x] **D** File Read (blocking I/O) - standard `open()` ✅
 - [x] **E** Cache Lookup (async Redis) - high-throughput cache ✅
-- [ ] **F** Mixed Workload - ML preprocessing + inference
-- [ ] **G** Fire-and-Forget Logging - background tasks
-- [ ] **H** Batch Parallel Requests - `asyncio.gather()`
+- [x] **F** Mixed Workload - ML preprocessing + inference ✅
+- [x] **G** Fire-and-Forget Logging - background tasks ✅
+- [x] **H** Batch Parallel Requests - `asyncio.gather()` ✅
 
 **Key Concepts:**
 - Match the pattern to the library's capabilities
@@ -145,7 +145,7 @@ See `docs/Exercises/sync-async-exercises.md` for full details.
 | Phase | Topic | Status |
 |-------|-------|--------|
 | 1 | Foundation (FastAPI, async/sync) | ✅ Complete |
-| 1.5 | Sync vs Async Mastery (8 exercises) | 🆕 New |
+| 1.5 | Sync vs Async Mastery (8 exercises) | ✅ Complete |
 | 2 | Observability (middleware, metrics) | 🔄 In Progress |
 | 3 | Load Testing (Locust) | 📋 Pending |
 | 4 | Performance Tuning (workers) | 📋 Pending |
