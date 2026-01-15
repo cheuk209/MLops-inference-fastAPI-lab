@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.schemas import PredictRequest, PredictResponse
-from app.middleware import add_process_time_header
+from app.middleware import add_process_time_header, calculate_percentile, rolling_latency
 import asyncio
 import random
 
@@ -42,3 +42,8 @@ async def predict(request: PredictRequest):
         prediction=round(prediction, 2),
         model_version="1.0.0"
     )
+
+@app.get("/latency/{percentile}")
+def get_rolling_latency(percentile: int):
+    rolling_latency_time = calculate_percentile(rolling_latency, percentile)
+    return rolling_latency_time
