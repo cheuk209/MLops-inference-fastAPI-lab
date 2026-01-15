@@ -47,3 +47,17 @@ async def predict(request: PredictRequest):
 def get_rolling_latency(percentile: int):
     rolling_latency_time = calculate_percentile(rolling_latency, percentile)
     return rolling_latency_time
+
+@app.get("/metrics")
+def get_latency_metrics():
+    p50_value = get_rolling_latency(50)
+    p95_value = get_rolling_latency(95)
+    p99_value = get_rolling_latency(99)
+    return {
+        "latency": {
+            "P50" : p50_value,
+            "P95" : p95_value,
+            "P99" : p99_value
+        },
+        "sample_count": len(rolling_latency)
+    }

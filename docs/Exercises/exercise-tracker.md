@@ -63,18 +63,18 @@ See `docs/Exercises/sync-async-exercises.md` for full details.
 
 ---
 
-## Phase 2: Observability (In Progress 🔄)
+## Phase 2: Observability (Completed ✅)
 
 **Learning Objective:** Learn to instrument your service for production monitoring - measure latency, calculate percentiles, and expose metrics.
 
-### Exercise 2: Adding Timing Middleware 🔄
+### Exercise 2: Adding Timing Middleware ✅
 - [x] **2.1** Create `app/middleware.py` with middleware skeleton
 - [x] **2.2** Understand middleware structure (before/after request pattern)
 - [x] **2.3** Capture request timing with `time.perf_counter()`
 - [x] **2.7** Register middleware in `main.py` (done early)
-- [ ] **2.4** Store latency samples (keep last N measurements in memory)
-- [ ] **2.5** Calculate percentiles (p50, p95, p99)
-- [ ] **2.6** Create `/metrics` endpoint to expose collected data
+- [x] **2.4** Store latency samples (keep last N measurements in memory)
+- [x] **2.5** Calculate percentiles (p50, p95, p99)
+- [x] **2.6** Create `/metrics` endpoint to expose collected data
 
 **Key Concepts:**
 - Middleware intercepts all requests without modifying endpoints
@@ -146,7 +146,7 @@ See `docs/Exercises/sync-async-exercises.md` for full details.
 |-------|-------|--------|
 | 1 | Foundation (FastAPI, async/sync) | ✅ Complete |
 | 1.5 | Sync vs Async Mastery (8 exercises) | ✅ Complete |
-| 2 | Observability (middleware, metrics) | 🔄 In Progress |
+| 2 | Observability (middleware, metrics) | ✅ Complete |
 | 3 | Load Testing (Locust) | 📋 Pending |
 | 4 | Performance Tuning (workers) | 📋 Pending |
 | 5 | Containerization (Docker) | 📋 Pending |
@@ -157,8 +157,10 @@ See `docs/Exercises/sync-async-exercises.md` for full details.
 
 | File | Topic |
 |------|-------|
+| `docs/Learning/fastapi-foundations.md` | FastAPI basics, Pydantic schemas, async/sync patterns for ML inference |
 | `docs/Learning/concurrency-and-parallelism.md` | Deep dive into async, threading, and how it relates to Kubernetes scaling |
 | `docs/Learning/threading-fundamentals.md` | Ground-up explanation of processes, threads, GIL, and thread pools |
+| `docs/Learning/latency-monitoring.md` | Latency storage, percentile calculation, and MLOps best practices |
 | `docs/Exercises/exercise-tracker.md` | This file - exercise progress tracking |
 | `docs/Exercises/sync-async-exercises.md` | 8 hands-on exercises for sync/async mastery |
 
@@ -166,6 +168,4 @@ See `docs/Exercises/sync-async-exercises.md` for full details.
 
 ## Next Step
 
-**Option 1:** Work through **Phase 1.5 exercises** (A-H) in `sync-async-exercises.md` to build mastery.
-
-**Option 2:** Continue with **Exercise 2.4**: Store latency samples in memory for percentile calculations.
+Continue with **Phase 3: Load Testing** - Install Locust and learn to simulate real-world traffic patterns to find your service's breaking points.
