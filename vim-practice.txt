@@ -1,0 +1,1079 @@
+===============================================================================
+=                      V I M   M O T I O N   P R A C T I C E                  =
+=                    Practice makes permanent! Let's go!                      =
+===============================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 1: APPEND AFTER CURSOR (a)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Position your cursor on the last letter of the incomplete word, then press
+'a' to append text after the cursor. Press <ESC> when done.
+
+1.1) Add 'd' to complete "World":
+---> Hello World
+---> Hello World
+
+1.2) Add 't' to complete "fast":
+---> Python is fas
+---> Python is fast
+
+1.3) Add 'x' to complete "fox":
+---> The quick brown fo
+---> The quick brown fox
+
+1.4) Add 'y' to complete "lazy":
+---> jumps over the laz
+---> jumps over the lazy
+
+1.5) Add 'g' to complete "dog":
+---> The lazy do
+---> The lazy dog
+
+1.6) Add 'e' to complete "code":
+---> I love to cod
+---> I love to code
+
+1.7) Add 'n' to complete "function":
+---> Define a new functio
+---> Define a new function
+
+1.8) Add 's' to complete "variables":
+---> Initialize the variabl
+---> Initialize the variables
+
+1.9) Add 'ing' to complete "processing":
+---> Data process
+---> Data processing
+
+1.10) Add 'er' to complete "server":
+---> Start the serv
+---> Start the server
+
+1.11) Add 'ment' to complete "deployment":
+---> Prepare for deploy
+---> Prepare for deployment
+
+1.12) Add 'tion' to complete "configuration":
+---> Update the configura
+---> Update the configuration
+
+1.13) Add 'base' to complete "database":
+---> Connect to the data
+---> Connect to the database
+
+1.14) Add 'work' to complete "framework":
+---> Use the Flask frame
+---> Use the Flask framework
+
+1.15) Add 'ory' to complete "repository":
+---> Clone the reposit
+---> Clone the repository
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 2: OPEN LINE BELOW (o)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Position cursor on line 1, press 'o' to open new line below, type text, <ESC>.
+
+2.1) Add "Second" between First and Third:
+---> First
+---> Third
+
+---> First
+---> Second
+---> Third
+
+2.2) Add "B" between A and C:
+---> A
+---> C
+
+---> A
+---> B
+---> C
+
+2.3) Add "Two" between One and Three:
+---> One
+---> Three
+
+---> One
+---> Two
+---> Three
+
+2.4) Add "Step 2" between Step 1 and Step 3:
+---> Step 1: Open file
+---> Step 3: Save file
+
+---> Step 1: Open file
+---> Step 2: Edit file
+---> Step 3: Save file
+
+2.5) Add "Tuesday" between Monday and Wednesday:
+---> Monday
+---> Wednesday
+
+---> Monday
+---> Tuesday
+---> Wednesday
+
+2.6) Add "February" between January and March:
+---> January
+---> March
+
+---> January
+---> February
+---> March
+
+2.7) Add "elif x == 0:" between the if and else:
+---> if x > 0:
+--->     print("positive")
+---> else:
+--->     print("negative")
+
+---> if x > 0:
+--->     print("positive")
+---> elif x == 0:
+--->     print("zero")
+---> else:
+--->     print("negative")
+
+2.8) Add a print statement between the lines:
+---> x = 10
+---> y = 20
+
+---> x = 10
+---> print(x)
+---> y = 20
+
+2.9) Add "import os" after the first import:
+---> import sys
+---> import json
+
+---> import sys
+---> import os
+---> import json
+
+2.10) Add a blank docstring after the function def:
+---> def calculate():
+--->     return 42
+
+---> def calculate():
+--->     """Calculate the answer."""
+--->     return 42
+
+2.11) Add "Banana" to the list:
+---> Apple
+---> Cherry
+
+---> Apple
+---> Banana
+---> Cherry
+
+2.12) Add "DEBUG: Processing" between the log lines:
+---> INFO: Started
+---> INFO: Completed
+
+---> INFO: Started
+---> DEBUG: Processing
+---> INFO: Completed
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 3: OPEN LINE ABOVE (O)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Position cursor on the target line, press 'O' to open line above, type, <ESC>.
+
+3.1) Add "# Main function" above:
+---> def main():
+--->     pass
+
+---> # Main function
+---> def main():
+--->     pass
+
+3.2) Add "# Calculate sum" above:
+---> def add(a, b):
+--->     return a + b
+
+---> # Calculate sum
+---> def add(a, b):
+--->     return a + b
+
+3.3) Add "# Initialize variables" above:
+---> x = 0
+---> y = 0
+
+---> # Initialize variables
+---> x = 0
+---> y = 0
+
+3.4) Add "#!/usr/bin/env python3" above:
+---> import sys
+
+---> #!/usr/bin/env python3
+---> import sys
+
+3.5) Add "# TODO: Add error handling" above:
+---> result = dangerous_operation()
+
+---> # TODO: Add error handling
+---> result = dangerous_operation()
+
+3.6) Add "@staticmethod" above:
+---> def helper():
+--->     return True
+
+---> @staticmethod
+---> def helper():
+--->     return True
+
+3.7) Add "@property" above:
+---> def name(self):
+--->     return self._name
+
+---> @property
+---> def name(self):
+--->     return self._name
+
+3.8) Add "try:" above and indent the line below:
+---> risky_function()
+
+---> try:
+--->     risky_function()
+
+3.9) Add "# Section: Database" above:
+---> db = connect()
+
+---> # Section: Database
+---> db = connect()
+
+3.10) Add """"Docstring."""" above:
+---> class MyClass:
+--->     pass
+
+---> """Docstring."""
+---> class MyClass:
+--->     pass
+
+3.11) Add "# WARNING: Deprecated" above:
+---> old_function()
+
+---> # WARNING: Deprecated
+---> old_function()
+
+3.12) Add "if __name__ == '__main__':" above:
+--->     main()
+
+---> if __name__ == '__main__':
+--->     main()
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 4: CHANGE WORD (cw)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Position cursor on FIRST letter of wrong word, press 'cw', type correct, <ESC>.
+
+4.1) Change "wrong" to "right":
+---> This is the wrong answer
+---> This is the right answer
+
+4.2) Change "bad" to "good":
+---> This is a bad example
+---> This is a good example
+
+4.3) Change "old" to "new":
+---> Use the old method
+---> Use the new method
+
+4.4) Change "slow" to "fast":
+---> The algorithm is slow
+---> The algorithm is fast
+
+4.5) Change "hard" to "easy":
+---> Vim is hard to learn
+---> Vim is easy to learn
+
+4.6) Change "teh" to "the":
+---> I love teh weather
+---> I love the weather
+
+4.7) Change "recieve" to "receive":
+---> We recieve data here
+---> We receive data here
+
+4.8) Change "seperate" to "separate":
+---> We seperate the values
+---> We separate the values
+
+4.9) Change "occured" to "occurred":
+---> An error occured
+---> An error occurred
+
+4.10) Change "PLACEHOLDER" to "localhost":
+---> host = PLACEHOLDER
+---> host = localhost
+
+4.11) Change "XXX" to "8080":
+---> port = XXX
+---> port = 8080
+
+4.12) Change "TODO" to "DONE":
+---> status = TODO
+---> status = DONE
+
+4.13) Change "False" to "True":
+---> enabled = False
+---> enabled = True
+
+4.14) Change "None" to "[]":
+---> data = None
+---> data = []
+
+4.15) Change "print" to "logging.info":
+---> print("Starting server")
+---> logging.info("Starting server")
+
+4.16) Change "foo" to "calculate_total":
+---> def foo(x, y):
+---> def calculate_total(x, y):
+
+4.17) Change "tmp" to "result":
+---> tmp = a + b
+---> result = a + b
+
+4.18) Change "x" to "count":
+---> x = 0
+---> count = 0
+
+4.19) Change "str" to "string":
+---> Convert to str
+---> Convert to string
+
+4.20) Change "func" to "function":
+---> Call the func
+---> Call the function
+
+4.21) Change "arr" to "array":
+---> Initialize arr
+---> Initialize array
+
+4.22) Change "dict" to "dictionary":
+---> Create a dict
+---> Create a dictionary
+
+4.23) Change "sync" to "async":
+---> Use sync operations
+---> Use async operations
+
+4.24) Change "GET" to "POST":
+---> method = GET
+---> method = POST
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 5: GO TO FIRST COLUMN (0)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Press '0' to go to column 0 (very first position), then 'i' to insert.
+
+5.1) Add "- " at the very start:
+--->     Buy milk
+---> -   Buy milk
+
+5.2) Add "# " at column 0:
+--->     debug = True
+---> #   debug = True
+
+5.3) Add "1. " at the start:
+--->     First item
+---> 1.  First item
+
+5.4) Add "> " for a quote:
+--->     This is quoted text
+---> >   This is quoted text
+
+5.5) Add "* " for a bullet:
+--->     Important point
+---> *   Important point
+
+5.6) Add "// " for a comment:
+--->     int x = 5;
+---> //  int x = 5;
+
+5.7) Add ">>> " for Python REPL:
+--->     print("hello")
+---> >>> print("hello")
+
+5.8) Add "$ " for shell prompt:
+--->     ls -la
+---> $   ls -la
+
+5.9) Add "TODO: " at start:
+--->     Fix this later
+---> TODO: Fix this later
+
+5.10) Add "NOTE: " at start:
+--->     Remember this
+---> NOTE: Remember this
+
+5.11) Add "FIXME: " at start:
+--->     Broken code here
+---> FIXME: Broken code here
+
+5.12) Add "[ ] " for checkbox:
+--->     Complete task
+---> [ ] Complete task
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  Lesson 6: FIRST NON-BLANK CHARACTER (^)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Press '^' to jump to first non-whitespace character (different from '0').
+
+6.1) Use '^' then 'i' to insert "TODO: " before first word:
+--->     Fix this bug
+--->     TODO: Fix this bug
+
+6.2) Use '^' then 'cw' to change "old" to "new":
+--->     old_variable
+--->     new_variable
+
+6.3) Use '^' then 'i' to add "self." before the variable:
+--->         name = value
+--->         self.name = value
+
+6.4) Use '^' then 'cw' to change "foo" to "bar":
+--->         foo = 123
+--->         bar = 123
+
+6.5) Use '^' then 'i' to add "return " before:
+--->         result
+--->         return result
+
+6.6) Use '^' then 'cw' to change "var" to "const":
+--->     var x = 10
+--->     const x = 10
+
+6.7) Use '^' then 'i' to add "await " before:
+--->         fetch_data()
+--->         await fetch_data()
+
+6.8) Use '^' then 'cw' to change "let" to "const":
+--->     let value = 5
+--->     const value = 5
+
+6.9) Use '^' then 'i' to add "async " before:
+--->     def fetch():
+--->     async def fetch():
+
+6.10) Use '^' then 'cw' to change "private" to "public":
+--->         private int count;
+--->         public int count;
+
+6.11) Use '^' then 'i' to add "static " before:
+--->         void main()
+--->         static void main()
+
+6.12) Use '^' then 'cw' to change "String" to "int":
+--->         String value = 0;
+--->         int value = 0;
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 7: GO TO END OF LINE ($)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Press '$' to jump to end of line, then 'a' to append after.
+
+7.1) Add "." at the end:
+---> This needs a period
+---> This needs a period.
+
+7.2) Add "?" at the end:
+---> Why is the sky blue
+---> Why is the sky blue?
+
+7.3) Add "!" at the end:
+---> What a great day
+---> What a great day!
+
+7.4) Add ":" at the end:
+---> Here is the list
+---> Here is the list:
+
+7.5) Add ";" at the end:
+---> int x = 5
+---> int x = 5;
+
+7.6) Add "," at the end:
+---> "apple"
+---> "apple",
+
+7.7) Add " = None" at the end:
+---> default_value
+---> default_value = None
+
+7.8) Add " = []" at the end:
+---> empty_list
+---> empty_list = []
+
+7.9) Add " = {}" at the end:
+---> empty_dict
+---> empty_dict = {}
+
+7.10) Add " = 0" at the end:
+---> counter
+---> counter = 0
+
+7.11) Add " = True" at the end:
+---> is_valid
+---> is_valid = True
+
+7.12) Add " -> None" at the end:
+---> def process()
+---> def process() -> None
+
+7.13) Add " -> str" at the end:
+---> def get_name()
+---> def get_name() -> str
+
+7.14) Add " -> int" at the end:
+---> def calculate()
+---> def calculate() -> int
+
+7.15) Add ") {" at the end:
+---> function main(
+---> function main() {
+
+7.16) Add " {" at the end:
+---> if (condition)
+---> if (condition) {
+
+7.17) Add ")" at the end:
+---> print("hello"
+---> print("hello")
+
+7.18) Add "]" at the end:
+---> data = [1, 2, 3
+---> data = [1, 2, 3]
+
+7.19) Add "}" at the end:
+---> config = {"key": "value"
+---> config = {"key": "value"}
+
+7.20) Add " # end" as a comment:
+---> for i in range(10):
+---> for i in range(10):  # end
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                Lesson 8: LAST NON-BLANK CHARACTER (g_)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'g_' goes to last non-blank char (ignores trailing spaces).
+'$' goes to actual end (includes trailing spaces).
+
+8.1) Use 'g_' to find last real character:
+---> Hello World
+(g_ lands on 'd', $ lands after spaces)
+
+8.2) Use 'g_' then 'a' to append "!":
+---> Great job
+---> Great job!
+
+8.3) Use 'g_' then 'a' to append ".":
+---> This is done
+---> This is done.
+
+8.4) Use 'g_' then 'a' to append "?":
+---> Are you ready
+---> Are you ready?
+
+8.5) Use 'g_' then 'a' to append ":":
+---> Items
+---> Items:
+
+8.6) Use 'g_' then 'x' to delete last char:
+---> Remove this,
+---> Remove this
+
+8.7) Use 'g_' then 'r' to replace last char with ".":
+---> End this sentence;
+---> End this sentence.
+
+8.8) Use 'g_' then 'a' to append " = True":
+---> is_enabled
+---> is_enabled = True
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 9: SEARCH (/pattern)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Type '/pattern' + Enter to search. 'n' = next, 'N' = previous.
+
+9.1) Type '/ERROR' to find the error:
+INFO: Starting server
+DEBUG: Loading config
+INFO: Config loaded
+ERROR: Connection failed
+INFO: Retrying...
+DEBUG: Attempt 2
+ERROR: Timeout exceeded
+INFO: Giving up
+
+9.2) Type '/TODO' and press 'n' to find all TODOs:
+def process():
+    # TODO: validate input
+    data = fetch()
+    # TODO: handle errors
+    result = compute(data)
+    # TODO: add logging
+    # TODO: write tests
+    # TODO: document this
+    return result
+
+9.3) Search '/FIXME' to find issues:
+def calculate():
+    # FIXME: division by zero
+    x = 10 / y
+    # FIXME: off by one
+    for i in range(n + 1):
+        # FIXME: memory leak
+        data.append(heavy_object())
+    return x
+
+9.4) Search '/print' and change to 'logging.info' using 'cw':
+---> print("Starting")
+---> print("Processing")
+---> print("Done")
+
+---> logging.info("Starting")
+---> logging.info("Processing")
+---> logging.info("Done")
+
+9.5) Search '/foo' and change each to 'bar' using 'cw':
+---> foo = 1
+---> foo = 2
+---> foo = 3
+---> result = foo + foo
+
+---> bar = 1
+---> bar = 2
+---> bar = 3
+---> result = bar + bar
+
+9.6) Search '/password' to find sensitive data:
+config = {
+    "host": "localhost",
+    "port": 8080,
+    "password": "secret123",
+    "database": "mydb",
+    "password_hash": "abc123",
+}
+
+9.7) Search '/import' to find all imports:
+import os
+import sys
+from typing import List
+import json
+from pathlib import Path
+import logging
+
+9.8) Search '/def ' to find all function definitions:
+def first():
+    pass
+
+def second():
+    pass
+
+def third():
+    pass
+
+def fourth():
+    pass
+
+9.9) Search '/class ' to find all classes:
+class Dog:
+    pass
+
+class Cat:
+    pass
+
+class Bird:
+    pass
+
+9.10) Search '/return' to find all return statements:
+def a():
+    return 1
+
+def b():
+    return 2
+
+def c():
+    return None
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  Lesson 10: YANK LINE (yy) AND PASTE (P/p)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'yy' = copy line, 'p' = paste after, 'P' = paste before, 'dd' = cut line.
+
+10.1) Copy "Line B" with 'yy', go to Line D, paste above with 'P':
+---> Line A
+---> Line B
+---> Line C
+---> Line D
+
+---> Line A
+---> Line B
+---> Line C
+---> Line B
+---> Line D
+
+10.2) Duplicate the separator with 'yy' then 'p':
+---> ========
+---> Content
+
+---> ========
+---> ========
+---> Content
+
+10.3) Reorder with 'dd' and 'P' (cut Three, paste before One):
+---> Three
+---> One
+---> Two
+
+---> One
+---> Two
+---> Three
+
+10.4) Duplicate "print" line with 'yy' and 'p':
+---> print("hello")
+
+---> print("hello")
+---> print("hello")
+
+10.5) Copy the header, paste at bottom:
+---> # HEADER
+---> content line 1
+---> content line 2
+
+---> # HEADER
+---> content line 1
+---> content line 2
+---> # HEADER
+
+10.6) Fix the order (should be A, B, C, D):
+---> C
+---> A
+---> D
+---> B
+
+---> A
+---> B
+---> C
+---> D
+
+10.7) Duplicate the import line:
+---> import os
+
+---> import os
+---> import os
+
+10.8) Copy first item, paste after last:
+---> - First
+---> - Second
+---> - Third
+
+---> - First
+---> - Second
+---> - Third
+---> - First
+
+10.9) Reorder (Monday, Tuesday, Wednesday):
+---> Wednesday
+---> Monday
+---> Tuesday
+
+---> Monday
+---> Tuesday
+---> Wednesday
+
+10.10) Duplicate the decorator:
+---> @app.route("/")
+---> def index():
+--->     pass
+
+---> @app.route("/")
+---> @app.route("/")
+---> def index():
+--->     pass
+
+10.11) Fix order (1, 2, 3, 4, 5):
+---> 3
+---> 1
+---> 5
+---> 2
+---> 4
+
+---> 1
+---> 2
+---> 3
+---> 4
+---> 5
+
+10.12) Copy config line, paste after each section:
+---> [section1]
+---> [section2]
+---> [section3]
+---> enabled = true
+
+After copying "enabled = true" and pasting:
+---> [section1]
+---> enabled = true
+---> [section2]
+---> enabled = true
+---> [section3]
+---> enabled = true
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                   Lesson 11: UNDO (u) AND REDO (Ctrl-r)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+'u' = undo last change, 'Ctrl-r' = redo undone change.
+
+11.1) Delete "DELETEME" with 'dw', then undo with 'u':
+---> Keep DELETEME this text
+---> Keep this text (after dw)
+---> Keep DELETEME this text (after u)
+
+11.2) Change "old" to "new", then undo:
+---> The old way
+---> The new way (after cw)
+---> The old way (after u)
+
+11.3) Delete entire line with 'dd', then undo:
+---> Line one
+---> Delete this line
+---> Line three
+
+After dd on line 2, then u to restore.
+
+11.4) Make 3 changes, undo all 3:
+---> aaa bbb ccc
+Step 1: Change "aaa" to "xxx"
+Step 2: Change "bbb" to "yyy"
+Step 3: Change "ccc" to "zzz"
+---> xxx yyy zzz (after 3 changes)
+---> aaa bbb ccc (after 'uuu')
+
+11.5) Undo then Redo:
+---> original text
+Change "original" to "modified"
+---> modified text (after cw)
+---> original text (after u)
+---> modified text (after Ctrl-r)
+
+11.6) Delete 3 words, undo one at a time:
+---> one two three four
+'dw' on "one", 'dw' on "two", 'dw' on "three"
+---> four (after 3 deletions)
+---> three four (after u)
+---> two three four (after u)
+---> one two three four (after u)
+
+11.7) Chain of edits and undos:
+---> start
+'A' to append " middle" -> "start middle"
+'A' to append " end" -> "start middle end"
+'u' -> "start middle"
+'u' -> "start"
+'Ctrl-r' -> "start middle"
+'Ctrl-r' -> "start middle end"
+
+11.8) Practice rapid undo/redo:
+---> test line here
+Make 5 quick changes (any changes)
+Then 'uuuuu' to undo all 5
+Then 'Ctrl-r' 5 times to redo all 5
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                      Lesson 12: COMBINED CHALLENGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Challenge 1: Fix ALL typos using 'cw' and '/' (8 fixes):
+---> def calculat_averag(numbrs):
+--->     totl = sum(numbrs)
+--->     cont = len(numbrs)
+--->     retrn totl / cont
+
+---> def calculate_average(numbers):
+--->     total = sum(numbers)
+--->     count = len(numbers)
+--->     return total / count
+
+Challenge 2: Reorder AND complete using 'dd', 'P', '$', 'a' (3 reorders, 3 appends):
+---> 3. Thir
+---> 1. Firs
+---> 2. Secon
+
+---> 1. First
+---> 2. Second
+---> 3. Third
+
+Challenge 3: Add headers with 'O', fix values with 'cw' (2 headers, 4 fixes):
+---> host = XXX
+---> port = YYY
+---> debug = ZZZ
+---> timeout = AAA
+
+---> # Server Configuration
+---> host = localhost
+---> port = 8080
+---> # Debug Settings
+---> debug = true
+---> timeout = 30
+
+Challenge 4: Complete this function (use o, O, cw, $, a):
+---> def proces_data(dat):
+--->     resul = dat
+--->     return resul
+
+---> # Process incoming data
+---> def process_data(data):
+--->     """Process and transform data."""
+--->     result = data
+--->     return result
+
+Challenge 5: Fix this config file (search, change, add lines):
+---> [databas]
+---> host = PLACEHOLDR
+---> port = PLACEHOLDR
+---> name = PLACEHOLDR
+
+---> [database]
+---> host = localhost
+---> port = 5432
+---> name = myapp_db
+---> user = admin
+
+Challenge 6: Reorganize imports (reorder alphabetically with dd/P):
+---> import sys
+---> import json
+---> import os
+---> import logging
+---> import asyncio
+
+---> import asyncio
+---> import json
+---> import logging
+---> import os
+---> import sys
+
+Challenge 7: Fix and duplicate (yy/p, cw):
+---> prnt("Hello")
+
+---> print("Hello")
+---> print("World")
+---> print("Done")
+
+Challenge 8: Complete the class (O, o, cw, $):
+---> class Usr:
+--->     def __init__(slf, nam):
+--->         slf.nam = nam
+
+---> # User model class
+---> class User:
+--->     """Represents a user in the system."""
+--->     def __init__(self, name):
+--->         self.name = name
+--->         self.active = True
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         SPEED DRILL EXERCISES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Do these as fast as you can! Repeat until automatic.
+
+DRILL A: Append single characters (a)
+---> Hell
+---> Worl
+---> Pytho
+---> Jav
+---> Rus
+---> G
+---> Kotli
+---> Swif
+---> Rub
+---> PH
+
+DRILL B: Change words rapidly (cw)
+---> bad good bad good bad good bad good
+---> old new old new old new old new
+---> yes no yes no yes no yes no
+---> foo bar foo bar foo bar foo bar
+
+DRILL C: Add punctuation at end ($a)
+---> Hello World
+---> How are you
+---> This is great
+---> What time is it
+---> I love Vim
+---> Practice makes perfect
+---> Keep going
+---> Almost done
+---> Final line
+---> The end
+
+DRILL D: Add comments above (O)
+---> def one(): pass
+---> def two(): pass
+---> def three(): pass
+---> def four(): pass
+---> def five(): pass
+
+DRILL E: Add lines below (o)
+---> Item 1
+---> Item 3
+---> Item 5
+---> Item 7
+---> Item 9
+
+DRILL F: Jump and edit (^, 0, $, g_)
+--->     change_this_word = value
+--->     another_one = something
+--->     last_variable = data
+
+
+===============================================================================
+=                           QUICK REFERENCE                                   =
+===============================================================================
+
+  INSERT MODE:                      NAVIGATION:
+  a  = append after cursor          0  = go to column 0
+  o  = open line below              ^  = first non-blank char
+  O  = open line above              $  = end of line
+  cw = change word                  g_ = last non-blank char
+
+  SEARCH:                           COPY/PASTE:
+  /pattern = search forward         yy = yank (copy) line
+  n  = next match                   p  = paste after
+  N  = previous match               P  = paste before
+                                    dd = delete (cut) line
+
+  UNDO/REDO:
+  u      = undo
+  Ctrl-r = redo
+
+===============================================================================
+=           CONGRATULATIONS! Keep practicing until it's muscle memory!        =
+===============================================================================
