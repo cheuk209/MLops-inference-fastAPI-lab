@@ -16,34 +16,34 @@ KEYS TO PRACTICE:
 Fix each line to match the comment above it.
 
 1) Make this say "Hello World"
-Hello Worl
+Hello World
 
 2) Make this say "Python is fast"
-Python is fas
+Python is fast
 
 3) Make this say "The quick brown fox"
-The quick brown fo
+The quick brown fox
 
 4) Make this say "jumps over the lazy dog"
-jumps over the laz do
+jumps over the lazy dog
 
 5) Make this say "I love coding"
-I love codin
+I love coding
 
 6) Make this say "server started successfully"
-server started successfull
+server started successfully
 
 7) Make this say "database connection"
-database connectio
+database connection
 
 8) Make this say "configuration complete"
-configuratio complet
+configuration complete
 
 9) Make this say "deployment ready"
-deploymen read
+deployment ready
 
 10) Make this say "function executed"
-functio execute
+function executed
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,46 +53,48 @@ functio execute
 Fix the wrong words in each line.
 
 11) Should say "This is the right answer"
-This is the wrong answer
+This is the right answer
 
 12) Should say "Use the new method"
-Use the old method
+Use the new method
 
 13) Should say "The algorithm is fast"
-The algorithm is slow
+The algorithm is fast
 
 14) Should say "Vim is easy to learn"
-Vim is hard to learn
+Vim is easy to learn
 
 15) Should say "I receive data here"
-I recieve data here
+I receive data here
 
 16) Should say "An error occurred"
-An error occured
+An error occurred
 
 17) Should say "host = localhost"
-host = PLACEHOLDER
+localhost = PLACEHOLDER
 
 18) Should say "port = 8080"
-port = XXX
+port = 8080
 
 19) Should say "enabled = True"
-enabled = False
+enabled = True
 
 20) Should say "result = a + b"
-tmp = a + b
+result = a + b
 
 21) Should say "logging.info("Starting")"
-print("Starting")
+logging.info("Starting")
 
 22) Should say "def calculate_total(x, y):"
-def foo(x, y):
+def calculate_total(x, y):
 
 23) Should say "Use async operations"
-Use sync operations
+Use async operations
+
+
 
 24) Should say "method = POST"
-method = GET
+method = POST
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,38 +105,48 @@ Add the missing lines where indicated.
 
 25) Add "Second" between these two lines:
 First
+Second
 Third
 
 26) Add "Tuesday" between these:
 Monday
+Tuesday
 Wednesday
 
 27) Add "Step 2: Edit file" between these:
 Step 1: Open file
+Step 2: Edit file
 Step 3: Save file
 
 28) Add a comment "# Main function" above this:
+# Main function
 def main():
     pass
 
 29) Add "@property" above this:
+@property
 def name(self):
     return self._name
 
 30) Add "import os" after the first import:
 import sys
+import os
 import json
 
 31) Add "# TODO: Add validation" above this:
+# TODO: Add validation
 result = process(data)
 
 32) Add "elif x == 0:" and "    print('zero')" between these:
 if x > 0:
     print("positive")
+elif x == 0:
+    print("zero")
 else:
     print("negative")
 
 33) Add "#!/usr/bin/env python3" as the first line:
+#!/usr/bin/env python3
 import sys
 import os
 
@@ -150,46 +162,46 @@ def calculate():
 Fix the start or end of each line.
 
 35) Add a period at the end:
-This sentence needs punctuation
+This sentence needs punctuation.
 
 36) Add a question mark at the end:
-Why is the sky blue
+Why is the sky blue?
 
 37) Add an exclamation mark at the end:
-What a great day
+What a great day!
 
 38) Add a semicolon at the end:
-int x = 5
+int x = 5:
 
 39) Add " = None" at the end:
-default_value
+default_value = None
 
 40) Add " = []" at the end:
-empty_list
+empty_list = []
 
 41) Add " -> int" at the end:
-def calculate()
+def calculate() -> int
 
 42) Add the closing parenthesis:
-print("hello"
+print("hello")
 
 43) Add the closing bracket:
-data = [1, 2, 3
+data = [1, 2, 3]
 
 44) Add "# " at the very beginning to comment out:
-    debug = True
+    # debug = True
 
 45) Add "- " at the start for a bullet point:
-    Buy groceries
+    - Buy groceries
 
 46) Add "TODO: " before the first word:
-    Fix this bug later
+    TODO: Fix this bug later
 
 47) Add "return " before the expression:
-        result
+       return result
 
 48) Add "await " before the function call:
-        fetch_data()
+        await fetch_data()
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -209,14 +221,14 @@ ERROR: Timeout exceeded
 INFO: Giving up
 
 50) Find and change all "print" to "logging.info":
-print("Starting")
-print("Processing")
-print("Done")
+logging.info("Starting")
+logging.info("Processing")
+logging.info("Done")
 
 51) Find and change all "foo" to "bar":
-foo = 1
-foo = 2
-result = foo + foo
+bar = 1
+bar = 2
+result = bar + bar
 
 52) Find all TODO comments:
 def process():
